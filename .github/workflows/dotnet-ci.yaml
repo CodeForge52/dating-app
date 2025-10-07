@@ -1,0 +1,30 @@
+name: .NET API CI
+
+on:
+  push:
+    bracnches: [develop]
+  pull_request:
+    bracnhes: [main]
+
+jobs:
+  build:
+    name: Build .NET API
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.305'
+
+      - name: Restore dependencies
+        run: dotnet restore 
+        working-directory: ./API
+      
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+        working-directory: ./API
+      

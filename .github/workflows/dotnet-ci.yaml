@@ -2,9 +2,13 @@ name: .NET API CI
 
 on:
   push:
-    bracnches: [develop]
+    bracnches:
+      - develop
+      - main
   pull_request:
-    bracnhes: [main]
+    bracnhes:
+      - develop
+      - main
 
 jobs:
   build:

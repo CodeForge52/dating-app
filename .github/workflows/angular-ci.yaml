@@ -1,0 +1,33 @@
+name: Angular CI
+
+on:
+  pull_request:
+    bracnches:
+      - develop
+      - main
+  push:
+    bracnches:
+      - develop
+      - main
+
+jobs:
+  build:
+    name: Build and Test Angular App
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Use Node.job
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Install dependencies
+      run: npm CI
+      working-directory: ./client
+
+    - name: Build Angular App
+      run: npm run build --if-present
+      working-directory: ./client

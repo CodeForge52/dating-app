@@ -1,15 +1,18 @@
 name: Angular CI
 
 on:
-  pull_request:
-    branches:
-      - develop
-      - main
   push:
-    branches:
-      - develop
-      - main
-
+    branches: [develop]
+    paths:
+      - 'API/**'
+      - 'API.Tests/**'
+  pull_request:
+    branches: [develop]
+    paths:
+      - 'API/**'
+      - 'API.Tests/**'
+  pull_request:
+    branches: [main]
 jobs:
   build:
     name: Build and Test Angular App

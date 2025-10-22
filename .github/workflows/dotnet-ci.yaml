@@ -2,15 +2,19 @@ name: .NET API CI
 
 on:
   push:
-    branches: [develop]
+    branches:
+      - develop
+      - main
     paths:
-      - 'client/**'
+      - 'API/**'
+      - 'API.Tests/**'
   pull_request:
-    branches: [develop]
+    branches:
+      - develop
+      - main
     paths:
-      - 'client/**'
-  pull_request:
-    branches: [main]
+      - 'API/**'
+      - 'API.Tests/**'
 
 jobs:
   build:
